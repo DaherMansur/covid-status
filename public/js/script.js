@@ -1,2 +1,1 @@
 // Javascript
-alert('javascript');
