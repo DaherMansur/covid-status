@@ -20,7 +20,6 @@
     <title>Covid Status</title>
 </head>
 <body>
-    
     <h1>Covidão Status</h1>
 
 </body>
