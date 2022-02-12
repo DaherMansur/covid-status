@@ -1,5 +1,9 @@
 <?php 
     // require_once "app/apicontroller.php";
+
+    #echo '<pre>';
+
+    #print_r($_GET);
 ?>
 
 <!DOCTYPE html>
