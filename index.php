@@ -1,9 +1,5 @@
 <?php 
     // require_once "app/apicontroller.php";
-
-    echo '<pre>';
-
-    print_r($_GET);
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +16,12 @@
     <title>Covid Status</title>
 </head>
 <body>
-    <h1>Covidão Status</h1>
-
+    <aside>
+        .
+    </aside>
+    <header>
+        .
+    </header>
+    
 </body>
 </html>
