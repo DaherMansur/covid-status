@@ -10,8 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="public/css/style.css">
     <!-- Highcharts.js -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>  
-    
+    <script src="https://code.highcharts.com/highcharts.js"></script>      
     <script src="public/js/script.js"></script>
     <title>Covid Status</title>
 </head>
@@ -20,8 +19,30 @@
         .
     </aside>
     <header>
-        .
+    <div id="container"></div>
     </header>
+    <main>
+    </main>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        Highcharts.chart('container', {
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+
+    series: [{
+        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }]
+});
+    </script>
     
 </body>
 </html>
