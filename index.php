@@ -20,8 +20,12 @@
     <title>Covid Status</title>
 </head>
 <body>
+    <aside>
+        .
+    </aside>
+    <header>
+        .
+    </header>
     
-    <h1>Covidão Status</h1>
-
 </body>
 </html>
