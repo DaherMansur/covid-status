@@ -3,6 +3,14 @@
 echo '<pre>';
 $get = $_GET;
 class CovidStatus {
+
+  private $endpoint = null;
+  private $params = null;
+
+  public function __construct($endpoint, $params){
+    $this->endpoint = $endpoint;
+    $this->params = $params;
+  }
   
   public function request($endpoint, $params = array()){
 
@@ -33,8 +41,8 @@ class CovidStatus {
     return json_decode($res, true);
   }
 
-  public function getTotal($endpoint){
-    $data = $this->request($endpoint);
+  public function getTotalCountry(){
+    $data = $this->request('country/'.$this->endpoint);
 
     if(empty($data) && !is_array($data)){
         return false;
@@ -42,8 +50,8 @@ class CovidStatus {
     return end($data);
   }
 
-  public function getDeath($endpoint, $params = array()){
-    $data = $this->request($endpoint, $params);
+  public function getDeath(){
+    $data = $this->request('country/'.$this->endpoint, $this->params);
     $deaths = [];
 
     foreach($data as $key){
@@ -51,14 +59,27 @@ class CovidStatus {
     }
     return $deaths;
   }
+  //function worldwide
   
 }
 
-$covidStatus = new CovidStatus();
-$deaths = $covidStatus->getDeath('country/brazil', $get);
-#$total = $covidStatus->getTotal('country/brazil');
-print_r($deaths);
+//variaveis testes
+$parametro = [];
+$country = 'brazil';
+$covidStatus = new CovidStatus($country, $parametro);
+$total = $covidStatus->getTotalCountry();
+print_r($total);
+
+#$deaths = $covidStatus->getDeath('country/brazil', $get);
+#$total = $covidStatus->getTotalCountry();
+// foreach($deaths as $death){
+//   echo $death.'<br>';
+// }
 echo '<br>';
+
+
+
+
 
 
 ?>
