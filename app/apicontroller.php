@@ -60,23 +60,23 @@ class CovidStatus {
     return $deaths;
   }
   //function worldwide
+  #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
   
 }
 
 //variaveis testes
-$parametro = [];
-$country = 'brazil';
-$covidStatus = new CovidStatus($country, $parametro);
-$total = $covidStatus->getTotalCountry();
-print_r($total);
+#$parametro = $_GET;
+// $country = 'brazil';
+// $covidStatus = new CovidStatus($country, $parametro);
+// $total = $covidStatus->getTotalCountry();
+// print_r($total);
 
-#$deaths = $covidStatus->getDeath('country/brazil', $get);
-#$total = $covidStatus->getTotalCountry();
+// $deaths = $covidStatus->getDeath();
+// #$total = $covidStatus->getTotalCountry();
 // foreach($deaths as $death){
 //   echo $death.'<br>';
 // }
 echo '<br>';
-
 
 
 
