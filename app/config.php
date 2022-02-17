@@ -8,6 +8,8 @@
     $country = 'brazil';
     $params = [];
 
+    $country = isset($_GET['country']) ? $_GET['country'] : $country;
+
     if(isset($_GET['from'])){
         $params['from'] = $_GET['from'];
 
@@ -20,8 +22,6 @@
     }
     
     print_r($params);
-
-    $country = isset($_GET['country']) ? $_GET['country'] : $country;
 
     $covidStatus = new CovidStatus($country, $params);
     $total = $covidStatus->getTotalCountry();
