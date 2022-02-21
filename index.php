@@ -27,7 +27,16 @@
 <body>
     <div class="container grid template-1">
         <aside class="nav">
-            ###
+            <div class="country">
+                <ul>
+                    <li><a href="#">Brazil</a></li>
+                </ul>
+            </div>
+            <div class="country-nmbrs">
+                <ul>
+                    <li><a href="#">99999</a></li>
+                </ul>
+            </div>
         </aside>
         <header class="head">
             <h1>Covid Status</h1>
