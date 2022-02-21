@@ -19,7 +19,7 @@
        /*  header("refresh:1"); */
     ?>
     <!-- Highcharts.js -->
-<!--     <script src="https://code.highcharts.com/highcharts.js"></script> -->
+    <!--     <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <script src="public/js/script.js"></script>
     <title>Covid Status</title>
 </head>
@@ -27,23 +27,30 @@
 <body>
     <div class="container grid template-1">
         <aside class="nav">
-            <div class="country">
-                <ul>
-                    <li>Brazil</li>
-                </ul>
+            <div id="nav-head">
+
             </div>
-            <div class="country-nmbrs">
-                <ul>
-                    <li>99999</li>
-                </ul>
-            </div>
+            <a href="#">
+                <div class="button-1">
+                    <div class="country">
+                        <ul>
+                            <li>Brazil</li>
+                        </ul>
+                    </div>
+                    <div class="country-nmbrs">
+                        <ul>
+                            <li>99999</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
         </aside>
         <header class="head">
             <h1>Covid Status</h1>
         </header>
         <main class="grid container-main center">
             <div class="head-content flex">
-                <div id ="graph-1"></div>
+                <div id="graph-1"></div>
             </div>
             <div class="content"></div>
             <div class="content"></div>
@@ -52,7 +59,9 @@
             <div class="content"></div>
             <div class="content"></div>
         </main>
-        <footer><p>references and credits ~</p></footer>
+        <footer>
+            <p>references and credits ~</p>
+        </footer>
     </div>
 
 

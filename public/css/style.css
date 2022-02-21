@@ -60,12 +60,20 @@ header h1{
 }
 .nav{
     grid-area: nav;
-    background-color: #5D80B8;
-    display: flex;
-    justify-content: space-between;
+    background-color: /* #5D80B8 */#1e2140;
     height: 100%;
     width: auto;
     min-width: 250px;
+}
+#nav-head{
+    background-color: #292b44;
+    height: 200px;
+}
+.button-1{
+    display: flex;
+    justify-content: space-between;
+    background-color: #363853;
+    border-radius: 7%;
 }
 .nav ul, li, a{
     padding: 0;
