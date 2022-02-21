@@ -29,12 +29,12 @@
         <aside class="nav">
             <div class="country">
                 <ul>
-                    <li><a href="#">Brazil</a></li>
+                    <li>Brazil</li>
                 </ul>
             </div>
             <div class="country-nmbrs">
                 <ul>
-                    <li><a href="#">99999</a></li>
+                    <li>99999</li>
                 </ul>
             </div>
         </aside>
