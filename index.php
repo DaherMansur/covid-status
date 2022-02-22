@@ -46,13 +46,6 @@
         <footer><p>references and credits ~</p></footer>
     </div>
 
-
-
-
-
-
-
-
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
     Highcharts.chart('graph-1', {

@@ -59,24 +59,71 @@ class CovidStatus {
     }
     return $deaths;
   }
+
+  public function averageWeeks(){
+    $data = $this->request('dayone/country/'.$this->endpoint);
+
+    $return = [];
+    $dates = [];
+
+    $start = 0;
+    $limit = 7;
+
+    for($q=0;$q < count($data); $q++){
+
+      for($w=0;$w < 7; $w++){
+
+        if($data[$start] === null){
+          $start=0;
+          break;
+        } 
+
+        $return[$q][$w] = $data[$start];
+        $start++;
+      }
+    }
+    print_r($return);
+
+
+
+    #print_r($data);
+    #substr($key['Date'], 0, 10),
+    foreach($data as $key){
+      #$dateFormat = substr($key['Date'], 0, 10);
+
+      
+      // $dates[] = [
+      //       'Date' => substr($key['Date'], 0, 10),
+      //       'Confirmed' => $key['Confirmed']
+      // ];
+      
+    }
+
+
+    #print_r($dates);
+    #print_r($data);
+    // foreach($data as $key){
+    //   $dates[] = [
+    //     'Date' => substr($data[$key]['Date'], 0, 10),
+    //     'Deaths' => $data[$key]['Deaths']
+    //   ];
+    // }
+
+    // foreach($dates as $date){
+      
+    // }
+    
+    return $dates;
+  }
   //function worldwide
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
   
 }
 
 //variaveis testes
-#$parametro = $_GET;
-// $country = 'brazil';
-// $covidStatus = new CovidStatus($country, $parametro);
-// $total = $covidStatus->getTotalCountry();
-// print_r($total);
-
-// $deaths = $covidStatus->getDeath();
-// #$total = $covidStatus->getTotalCountry();
 // foreach($deaths as $death){
 //   echo $death.'<br>';
 // }
-echo '<br>';
 
 
 

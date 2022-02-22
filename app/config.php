@@ -2,7 +2,6 @@
 
     require "../app/apicontroller.php";
 
-    print_r($_GET);
 
     //Página principal
     $country = 'brazil';
@@ -21,11 +20,10 @@
         }
     }
     
-    print_r($params);
 
     $covidStatus = new CovidStatus($country, $params);
-    $total = $covidStatus->getTotalCountry();
-    print_r($total);
-    #print_r($_GET);
+    $average = $covidStatus->averageWeeks();
+    #print_r($average);
+    #Date
     
 ?>
