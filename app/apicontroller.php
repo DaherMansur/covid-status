@@ -66,54 +66,33 @@ class CovidStatus {
     $return = [];
     $dates = [];
 
+    $param = 'Confirmed';
+
     $start = 0;
-    $limit = 7;
+    $limit = 14;
 
     for($q=0;$q < count($data); $q++){
 
-      for($w=0;$w < 7; $w++){
+      for($w=0;$w < $limit; $w++){
 
-        if($data[$start] === null){
-          $start=0;
-          break;
-        } 
+        if (!isset($data[$start])) break;
 
-        $return[$q][$w] = $data[$start];
+        $return[$q][$w]['Date'] = substr($data[$start]['Date'], 0, 10);
+        $return[$q][$w][$param] = $data[$start][$param];
         $start++;
+        
       }
     }
-    print_r($return);
 
 
 
-    #print_r($data);
-    #substr($key['Date'], 0, 10),
-    foreach($data as $key){
-      #$dateFormat = substr($key['Date'], 0, 10);
-
+    foreach($return as $key){
       
-      // $dates[] = [
-      //       'Date' => substr($key['Date'], 0, 10),
-      //       'Confirmed' => $key['Confirmed']
-      // ];
+      echo $key[0]['Confirmed'].'<br>';
+
       
     }
-
-
-    #print_r($dates);
-    #print_r($data);
-    // foreach($data as $key){
-    //   $dates[] = [
-    //     'Date' => substr($data[$key]['Date'], 0, 10),
-    //     'Deaths' => $data[$key]['Deaths']
-    //   ];
-    // }
-
-    // foreach($dates as $date){
-      
-    // }
     
-    return $dates;
   }
   //function worldwide
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
