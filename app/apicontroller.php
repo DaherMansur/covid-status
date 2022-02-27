@@ -63,36 +63,49 @@ class CovidStatus {
   public function averageWeeks(){
     $data = $this->request('dayone/country/'.$this->endpoint);
 
+    $param = 'Confirmed'; //Parametro na function
+
     $return = [];
-    $dates = [];
-
-    $param = 'Confirmed';
-
     $start = 0;
-    $limit = 14;
-
     for($q=0;$q < count($data); $q++){
 
-      for($w=0;$w < $limit; $w++){
-
+      for($w=0;$w < 7; $w++){
         if (!isset($data[$start])) break;
 
         $return[$q][$w]['Date'] = substr($data[$start]['Date'], 0, 10);
         $return[$q][$w][$param] = $data[$start][$param];
         $start++;
-        
       }
     }
 
-
-
+    $dates = ['Date', 'Cases'];
     foreach($return as $key){
+    
+      /*  
+        A média é realizada em base com novos casos
+        Não no TOTAL da semana 
+        (A média está arrendonda para cima)
+      */
       
-      echo $key[0]['Confirmed'].'<br>';
+      //AverangeCases
+      $cases = array_column($key, $param);
+      $averageCases = (end($cases) - $cases[0]) / count($cases);
+
+      $average = ceil($averageCases).'<br>';
+
+      $date = array_column($key, 'Date');
+
+      $dates = [
+        'Date' => $date,
+        'Cases' => $average
+      ];
+
+      print_r($dates);
+      
 
       
     }
-    
+
   }
   //function worldwide
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
