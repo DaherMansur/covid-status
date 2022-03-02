@@ -1,7 +1,5 @@
 <?php
 
-echo '<pre>';
-$get = $_GET;
 class CovidStatus {
 
   private $endpoint = null;
@@ -41,6 +39,18 @@ class CovidStatus {
     return json_decode($res, true);
   }
 
+  public function getCountry(){
+    $data = $this->request('countries');
+
+    if(empty($data) && !is_array($data)){
+      return false;
+    }
+
+    $response = array_column($data, 'Country');
+    sort($response);
+    return $response;
+  }
+
   public function getTotalCountry(){
     $data = $this->request('country/'.$this->endpoint);
 
@@ -60,10 +70,10 @@ class CovidStatus {
     return $deaths;
   }
 
-  public function averageWeeks(){
+  public function averageWeeks($param){
     $data = $this->request('dayone/country/'.$this->endpoint);
 
-    $param = 'Confirmed'; //Deaths, Confirmed. (Parametro na function)
+    // $param = 'Confirmed'; //Deaths, Confirmed. (Parametro na function)
 
     $return = [];
     $start = 0;
@@ -107,7 +117,6 @@ class CovidStatus {
         $param => $average
       ];
     }  
-
     return $response;
   }
   //function worldwide
