@@ -78,7 +78,7 @@ class CovidStatus {
       }
     }
 
-    $dates = ['Date', 'Cases'];
+    $response = [];
     foreach($return as $key){
       
       //AverangeCases 
@@ -89,26 +89,26 @@ class CovidStatus {
       
       //Date
       $dateList = array_column($key, 'Date');
-      foreach($dateList as $key){
 
-        $current = date('d/M', strtotime($dateList[0]));
-        $end = date('d/M', strtotime(end($dateList)));
+      $current = date('d/M', strtotime($dateList[0]));
+      $end = date('d/M', strtotime(end($dateList)));
 
-        $currentYear = date('Y', strtotime($dateList[0]));
-        $endYear = date('Y', strtotime(end($dateList)));
-        
-        if($currentYear === $endYear){
-          $date = $current. ' - '. $end;
-        } else {
-          $date = $current.'/'.$currentYear. ' - ' . $end.'/'.$endYear;
-        }
-      }  
+      $currentYear = date('Y', strtotime($dateList[0]));
+      $endYear = date('Y', strtotime(end($dateList)));
+      
+      if($currentYear !== $endYear){
+        $date = $current.'/'.$currentYear. ' - ' . $end.'/'.$endYear;
+      } else {
+        $date = $current. ' - '. $end;
+      }
 
-      $dates = [
+      $response[] = [
         'Date' => $date,
-        'Cases' => $average
+        $param => $average
       ];
-    }
+    }  
+
+    return $response;
   }
   //function worldwide
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z

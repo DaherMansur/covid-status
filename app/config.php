@@ -23,7 +23,7 @@
 
     $covidStatus = new CovidStatus($country, $params);
     $average = $covidStatus->averageWeeks();
-    #print_r($average);
+    print_r($average);
     #Date
     
 ?>
