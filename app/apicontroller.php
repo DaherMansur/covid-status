@@ -63,7 +63,7 @@ class CovidStatus {
   public function averageWeeks(){
     $data = $this->request('dayone/country/'.$this->endpoint);
 
-    $param = 'Confirmed'; //Parametro na function
+    $param = 'Confirmed'; //Deaths, Confirmed. (Parametro na function)
 
     $return = [];
     $start = 0;
@@ -80,32 +80,35 @@ class CovidStatus {
 
     $dates = ['Date', 'Cases'];
     foreach($return as $key){
-    
-      /*  
-        A média é realizada em base com novos casos
-        Não no TOTAL da semana 
-        (A média está arrendonda para cima)
-      */
       
-      //AverangeCases
+      //AverangeCases 
       $cases = array_column($key, $param);
       $averageCases = (end($cases) - $cases[0]) / count($cases);
 
-      $average = ceil($averageCases).'<br>';
+      $average = ceil($averageCases);
+      
+      //Date
+      $dateList = array_column($key, 'Date');
+      foreach($dateList as $key){
 
-      $date = array_column($key, 'Date');
+        $current = date('d/M', strtotime($dateList[0]));
+        $end = date('d/M', strtotime(end($dateList)));
+
+        $currentYear = date('Y', strtotime($dateList[0]));
+        $endYear = date('Y', strtotime(end($dateList)));
+        
+        if($currentYear === $endYear){
+          $date = $current. ' - '. $end;
+        } else {
+          $date = $current.'/'.$currentYear. ' - ' . $end.'/'.$endYear;
+        }
+      }  
 
       $dates = [
         'Date' => $date,
         'Cases' => $average
       ];
-
-      print_r($dates);
-      
-
-      
     }
-
   }
   //function worldwide
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
