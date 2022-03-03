@@ -1,10 +1,10 @@
 <?php 
 
-    require "../app/apicontroller.php";
+    require "app/apicontroller.php";
 
-    echo '<pre>';
+    #echo '<pre>';
     //Página principal
-    $country = 'TW';
+    
     $params = [];
 
     $country = isset($_GET['country']) ? $_GET['country'] : $country;
@@ -22,10 +22,6 @@
     
 
     $covidStatus = new CovidStatus($country, $params);
-    #$average = $covidStatus->averageWeeks('Confirmed');
-    #print_r($average);
-    $country = $covidStatus->getCountry();
-    print_r($country);
-    #Date
+    #$country = $covidStatus->getCountry();
     
 ?>

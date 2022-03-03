@@ -1,9 +1,13 @@
 <?php 
-    // require_once "app/apicontroller.php";
 
+    $country = 'brazil';
+    require "app/config.php";
+
+    $average = $covidStatus->averageWeeks('Confirmed');
     #echo '<pre>';
 
-    #print_r($_GET);
+    #foreach($average as $key){ echo $key['Date'].', ';}
+    //['Jan', 'Feb', '16/Aug - 23/Aug', 'Apr', '20/Oct/2020 - 01/Jan/2021', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 ?>
 
 <!DOCTYPE html>
@@ -80,8 +84,9 @@
         },
 
         series: [{
-            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            data: [<?php foreach($average as $key){ echo intval($key['Confirmed']).', ';} ?>]
         }]
+        
     });
     </script>
 
