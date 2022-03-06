@@ -4,8 +4,10 @@
     require "app/config.php";
 
     $average = $covidStatus->averageWeeks('Confirmed');
-    #echo '<pre>';
-    #print_r($average);
+    echo '<pre>';
+    foreach ($average as $key){
+        echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],' ;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +72,7 @@
     <script>
     Highcharts.chart('graph-1', {
         xAxis: {
-            categories: [<?php foreach($average as $key) echo json_encode($key['Date']).', ' ?>]
+            
         },
 
         plotOptions: {
@@ -82,7 +84,9 @@
         },
 
         series: [{
-            data: [<?php foreach($average as $key) echo json_encode($key['Confirmed']).', ' ?>]
+            data: [<?php foreach($average as $key){
+                echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],'; 
+            } ?>]
         }]
         
     });
