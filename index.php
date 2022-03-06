@@ -5,9 +5,7 @@
 
     $average = $covidStatus->averageWeeks('Confirmed');
     #echo '<pre>';
-
-    #foreach($average as $key){ echo $key['Date'].', ';}
-    //['Jan', 'Feb', '16/Aug - 23/Aug', 'Apr', '20/Oct/2020 - 01/Jan/2021', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    #print_r($average);
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +70,7 @@
     <script>
     Highcharts.chart('graph-1', {
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: [<?php foreach($average as $key) echo json_encode($key['Date']).', ' ?>]
         },
 
         plotOptions: {
@@ -84,7 +82,7 @@
         },
 
         series: [{
-            data: [<?php foreach($average as $key){ echo intval($key['Confirmed']).', ';} ?>]
+            data: [<?php foreach($average as $key) echo json_encode($key['Confirmed']).', ' ?>]
         }]
         
     });
