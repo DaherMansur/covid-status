@@ -2,7 +2,6 @@
 
     require "app/apicontroller.php";
 
-    #echo '<pre>';
     //Página principal
     
     $params = [];
@@ -20,7 +19,6 @@
         }
     }
     
-
     $covidStatus = new CovidStatus($country, $params);
     #$country = $covidStatus->getCountry();
     
