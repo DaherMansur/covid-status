@@ -79,7 +79,7 @@ class CovidStatus {
     $start = 0;
     for($q=0;$q < count($data); $q++){
 
-      for($w=0;$w < 14; $w++){
+      for($w=0;$w < 30; $w++){
         if (!isset($data[$start])) break;
 
         $return[$q][$w]['Date'] = substr($data[$start]['Date'], 0, 10);

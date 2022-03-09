@@ -66,13 +66,12 @@ header h1{
     min-width: 250px;
 }
 #nav-head{
-    background-color: #292b44;
     height: 200px;
 }
 .button-1{
     display: flex;
     justify-content: space-between;
-    background-color: #363853;
+    background-color: rgba(36, 38, 53, 0.1);
     border-radius: 7%;
 }
 .nav ul, li, a{
@@ -97,7 +96,7 @@ main{
 }
 footer{
     grid-area: foot;
-    background-color: #5D80B8;
+    background-color: #1e2140;
     line-height: center;
     display: block;
 }
@@ -124,4 +123,7 @@ footer p{
 }
 .highcharts-background{
     fill: #E2EDFF;
+}
+.highcharts-credits{
+    display: none;
 }
