@@ -59,16 +59,7 @@ class CovidStatus {
     }
     return end($data);
   }
-
-  public function getDeath(){
-    $data = $this->request('country/'.$this->endpoint, $this->params);
-    $deaths = [];
-
-    foreach($data as $key){
-      $deaths[] = $key['Deaths'];
-    }
-    return $deaths;
-  }
+  
   public function averageWeeks($param){
     $data = $this->request('dayone/country/'.$this->endpoint);
 
@@ -124,20 +115,17 @@ class CovidStatus {
 
     $param = 'Confirmed'; //Deaths, Confirmed
 
-    $return = [];
-    $start = 0;
+    $response = [];
+    $start = 1;
     for($q=0;$q < count($data); $q++){
       if (!isset($data[$start])) break;
 
-      $return[$q][$param] = $data[$start][$param] - $data[$start-1][$param];
-      $return[$q]['Date'] = substr($data[$start]['Date'], 0, 10);
+      $response[$q][$param] = $data[$start][$param] - $data[$start-1][$param];
+      $response[$q]['Date'] = substr($data[$start]['Date'], 0, 10);
       $start++;
-
     }
-    
-    echo '<pre>';
-    print_r($return);
 
+    return $response;
   }
   //function worldwide
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z

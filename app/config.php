@@ -18,7 +18,6 @@
             $params['to'] = $_GET['to'];
         }
     }
-    
     $covidStatus = new CovidStatus($country, $params);
     #$country = $covidStatus->getCountry();
     

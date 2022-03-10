@@ -3,8 +3,7 @@
     $country = 'brazil';
     require "app/config.php";
 
-    echo '<pre>';
-
+    #avg
     $average = $covidStatus->averageWeeks('Confirmed');
     #$newCases = $covidStatus->newCases();
     /* foreach ($average as $key){
