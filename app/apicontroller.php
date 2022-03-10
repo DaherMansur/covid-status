@@ -18,7 +18,7 @@ class CovidStatus {
     // Query String = Data format. 
     //?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
 
-    //from=2021-01-01&to=2021-10-10
+    //from=2021-01-01&to=2021-10-21
     if(is_array($params)){
       foreach($params as $param => $value){
         if(empty($params)) continue;
@@ -59,17 +59,7 @@ class CovidStatus {
     }
     return end($data);
   }
-
-  public function getDeath(){
-    $data = $this->request('country/'.$this->endpoint, $this->params);
-    $deaths = [];
-
-    foreach($data as $key){
-      $deaths[] = $key['Deaths'];
-    }
-    return $deaths;
-  }
-
+  
   public function averageWeeks($param){
     $data = $this->request('dayone/country/'.$this->endpoint);
 
@@ -119,11 +109,30 @@ class CovidStatus {
     }  
     return $response;
   }
+  
+  public function newCases(){
+    $data = $this->request('dayone/country/'.$this->endpoint);
+
+    $param = 'Confirmed'; //Deaths, Confirmed
+
+    $response = [];
+    $start = 1;
+    for($q=0;$q < count($data); $q++){
+      if (!isset($data[$start])) break;
+
+      $response[$q][$param] = $data[$start][$param] - $data[$start-1][$param];
+      $response[$q]['Date'] = substr($data[$start]['Date'], 0, 10);
+      $start++;
+    }
+
+    return $response;
+  }
   //function worldwide
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
   
 }
-
+$covidStatus = new CovidStatus('brazil', '');
+$newCases = $covidStatus->newCases();
 //variaveis testes
 // foreach($deaths as $death){
 //   echo $death.'<br>';
