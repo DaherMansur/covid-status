@@ -71,6 +71,17 @@ header h1{
 #nav-head{
     height: 200px;
 }
+nav{
+    max-height: 600px;
+    overflow-y: scroll;
+}
+nav::-webkit-scrollbar{
+    width: 7px;
+}
+nav::-webkit-scrollbar-thumb{
+    background-color: #484952b6;
+    border-radius: 4px;
+}
 .button-1{
     display: flex;
     justify-content: space-between;
