@@ -39,7 +39,7 @@
     <div class="container grid template-1">
         <aside class="nav">
             <div id="nav-head">
-                <button onclick="bgcolor()">Tema</button>
+                <button id="btn_">C</button>
 
             </div>
 

@@ -138,3 +138,10 @@ footer p{
 .highcharts-credits{
     display: none;
 }
+
+
+button{
+    border-radius: 50%;
+    border: 0.5px solid #c1c1c1;
+    background-color: #fff;
+}
