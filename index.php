@@ -3,9 +3,16 @@
     $country = 'brazil';
     require "app/config.php";
 
-    #avg
-    $average = $covidStatus->averageWeeks('Confirmed');
-    #$newCases = $covidStatus->newCases();
+    #from=2021-01-01&to=2021-10-21
+    $avgConfirmed = $covidStatus->averageWeeks('Confirmed'); //Media semanal (Confirmados)
+    $avgDeaths = $covidStatus->averageWeeks('Deaths'); //Media semanal (Mortes)
+
+    $countries = $covidStatus->getCountry(); //Lista de países(nome, slug, IO)
+    $totalCountry = $covidStatus->getTotalCountry(); //Listagem total de país
+    
+    $newCasesConfirmed = $covidStatus->newCases('Confirmed'); //Novos casos confirmados(perDay)
+    $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(perDay)
+
     /* foreach ($average as $key){
         echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],' ;
     } */
@@ -35,11 +42,13 @@
                 <button onclick="bgcolor()">Tema</button>
 
             </div>
-            <a href="#">
+
+            <?php foreach($countries as $key) { ?>
+            <a href="?country=<?=$key['Slug']?>">
                 <div class="button-1">
                     <div class="country">
                         <ul>
-                            <li>Brazil</li>
+                            <li><?= $key['Country'] ?></li>
                         </ul>
                     </div>
                     <div class="country-nmbrs">
@@ -49,6 +58,7 @@
                     </div>
                 </div>
             </a>
+            <?php } ?>
         </aside>
         <header class="head">
             <h1>Covid Status</h1>
@@ -86,7 +96,7 @@
         },
 
         series: [{
-            data: [<?php foreach($average as $key){
+            data: [<?php foreach($avgConfirmed as $key){
                 echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],'; 
             } ?>]
         }]

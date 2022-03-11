@@ -46,13 +46,12 @@ class CovidStatus {
       return false;
     }
 
-    $response = array_column($data, 'Country');
-    sort($response);
-    return $response;
+    array_multisort($data);
+    return $data;
   }
 
   public function getTotalCountry(){
-    $data = $this->request('country/'.$this->endpoint);
+    $data = $this->request('total/country/'.$this->endpoint);
 
     if(empty($data) && !is_array($data)){
         return false;
@@ -60,10 +59,9 @@ class CovidStatus {
     return end($data);
   }
   
-  public function averageWeeks($param){
-    $data = $this->request('dayone/country/'.$this->endpoint);
-
-    // $param = 'Confirmed'; //Deaths, Confirmed. (Parametro na function)
+  public function averageWeeks($status){
+    $data = $this->request('total/country/'.$this->endpoint, $this->params);
+    // $status = //Deaths, Confirmed. (Parametro na function)
 
     $return = [];
     $start = 0;
@@ -73,7 +71,7 @@ class CovidStatus {
         if (!isset($data[$start])) break;
 
         $return[$q][$w]['Date'] = substr($data[$start]['Date'], 0, 10);
-        $return[$q][$w][$param] = $data[$start][$param];
+        $return[$q][$w][$status] = $data[$start][$status];
         $start++;
       }
     }
@@ -82,8 +80,8 @@ class CovidStatus {
     foreach($return as $key){
       
       //AverangeCases 
-      $cases = array_column($key, $param);
-      $averageCases = (end($cases) - $cases[0]) / count($cases);
+      $cases = array_column($key, $status);
+      $averageCases = abs(end($cases) - $cases[0]) / count($cases);
 
       $average = ceil($averageCases);
       
@@ -104,23 +102,22 @@ class CovidStatus {
 
       $response[] = [
         'Date' => $date,
-        $param => $average
+        $status => $average
       ];
     }  
     return $response;
   }
   
-  public function newCases(){
-    $data = $this->request('dayone/country/'.$this->endpoint);
-
-    $param = 'Confirmed'; //Deaths, Confirmed
+  public function newCases($status){
+    $data = $this->request('country/'.$this->endpoint, $this->params);
+    #$status = //Deaths, Confirmed.
 
     $response = [];
     $start = 1;
     for($q=0;$q < count($data); $q++){
       if (!isset($data[$start])) break;
 
-      $response[$q][$param] = $data[$start][$param] - $data[$start-1][$param];
+      $response[$q][$status] = $data[$start][$status] - $data[$start-1][$status];
       $response[$q]['Date'] = substr($data[$start]['Date'], 0, 10);
       $start++;
     }
@@ -131,9 +128,12 @@ class CovidStatus {
   #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
   
 }
-$covidStatus = new CovidStatus('brazil', '');
-$newCases = $covidStatus->newCases();
+
 //variaveis testes
+#echo '<pre>';
+#print_r($avgConfirmed);
+
+
 // foreach($deaths as $death){
 //   echo $death.'<br>';
 // }
