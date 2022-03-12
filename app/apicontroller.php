@@ -30,7 +30,12 @@ class CovidStatus {
 
     curl_setopt_array($curl, array(
       CURLOPT_URL => $url,
-      CURLOPT_RETURNTRANSFER => true
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '', //Informa ao servidor quais tipos de codificação ele aceitará 
+      CURLOPT_MAXREDIRS => 10, //Escolher a quantidade de redirecionamentos 
+      CURLOPT_TIMEOUT => 0, //Segundos limite para execução do cURL
+      CURLOPT_FOLLOWLOCATION => true, //Segue a localização
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     ));
 
     $res = curl_exec($curl);
