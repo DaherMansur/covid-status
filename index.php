@@ -38,7 +38,29 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
     <div class="container grid template-1">
         <aside class="nav">
             <div id="nav-head">
-                <button id="btn_">C</button>
+                <h3>Ajude a diminuir o contágio!</h3>
+                <div class="prev">
+                    <div class="prev-ico"><img src="/public/images/covid-icons/Patient.png" alt=""></div>
+                    <div class="prev-text">Use máscara sempre que possível, principalmente em locais fechados</div>                    
+                </div>
+                <div class="prev">
+                    <div class="prev-text">Fique em casa se você estiver indisposto</div>
+                    <div class="prev-ico"><img src="/public/images/covid-icons/home.png" alt=""></div>               
+                </div>
+                <div class="prev">
+                    <div class="prev-ico"><img src="/public/images/covid-icons/hands.png" alt=""></div>
+                    <div class="prev-text">Lave as mãos com frequência usando sabão ou alcool gel</div>                    
+                </div>
+                <div class="prev">
+                    <div class="prev-text">Mantenha uma distância segura de outras pessoas, mesmo que não pareçam doentes</div>  
+                    <div class="prev-ico"><img src="/public/images/covid-icons/distance.png" alt=""></div>                 
+                </div>
+                <div class="prev">
+                    <div class="prev-ico"><img src="/public/images/covid-icons/hospital.png" alt=""></div>
+                    <div class="prev-text">Caso apresente tosse, febre alta, falta de ar procure atendimento médico e ligue com antecedência para o posto de saúde, UPA ou pronto-socorro</div>                    
+                </div>
+
+
 
             </div>
 
@@ -54,7 +76,7 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
                             <div class="country-nmbrs">
                                 <ul>
                                     <li>
-                                        <img src="public/images/flags/<?= $key['ISO2']?>.png" alt="" width="30px">
+                                        <img src="public/images/flags/<?= $key['ISO2'] ?>.png" alt="" width="30px">
                                     </li>
                                 </ul>
                             </div>
@@ -65,6 +87,7 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
         </aside>
         <header class="head">
             <h1>Covid Status</h1>
+            <button id="btn_">C</button>
         </header>
         <main class="grid container-main center">
             <div class="head-content flex column">
