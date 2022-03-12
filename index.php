@@ -12,7 +12,6 @@ $totalCountry = $covidStatus->getTotalCountry(); //Listagem total de país
 
 $newCasesConfirmed = $covidStatus->newCases('Confirmed'); //Novos casos confirmados(perDay)
 $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(perDay)
-
 /* foreach ($average as $key){
         echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],' ;
     } */
@@ -54,7 +53,9 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
                             </div>
                             <div class="country-nmbrs">
                                 <ul>
-                                    <li>99999</li>
+                                    <li>
+                                        <img src="public/images/flags/<?= $key['ISO2']?>.png" alt="" width="30px">
+                                    </li>
                                 </ul>
                             </div>
                         </div>
