@@ -38,12 +38,9 @@ $date = date('Y-m-d', strtotime('-3 month'));
     <title>Covid Status</title>
 
     <script>
+        
 
-        function getDate(country, date){
-
-            window.location.href = "?country="+country+"&from="+date            
-
-        }
+        
 
     </script>
 
@@ -101,7 +98,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
         <header class="head">
             <h1>Covid Status</h1>
             <button id="btn_">C</button>
-            <button id="btn_" onclick="getDate('<?= $country ?>', '<?= $date ?>')">3 Months</button>
+            <button id="dateTime" value="<?= $date ?>" >3 Months</button>
         </header>
         <main class="grid container-main center">
             <div class="head-content flex column">
@@ -140,6 +137,18 @@ $date = date('Y-m-d', strtotime('-3 month'));
             }]
 
         });
+    </script>
+
+    <script>
+
+        const dateTime = document.querySelector('#dateTime')
+        dateTime.addEventListener('click', () => {
+            
+            let country = '<?= $country ?>'
+            let date = '<?= $date ?>'
+
+            window.location.href = "?country="+country+"&from="+date
+        })
     </script>
 
     <script src="public/js/script.js"></script>
