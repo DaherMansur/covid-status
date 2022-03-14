@@ -12,6 +12,10 @@ $totalCountry = $covidStatus->getTotalCountry(); //Listagem total de país
 
 $newCasesConfirmed = $covidStatus->newCases('Confirmed'); //Novos casos confirmados(perDay)
 $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(perDay)
+
+$date = date('Y-m-d', strtotime('-3 month'));
+
+
 /* foreach ($average as $key){
         echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],' ;
     } */
@@ -32,6 +36,17 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
     <!-- Highcharts.js -->
     <!--     <script src="https://code.highcharts.com/highcharts.js"></script> -->
     <title>Covid Status</title>
+
+    <script>
+
+        function getDate(country, date){
+
+            window.location.href = "?country="+country+"&from="+date            
+
+        }
+
+    </script>
+
 </head>
 
 <body>
@@ -60,8 +75,6 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
                     <div class="prev-text">Caso apresente tosse, febre alta, falta de ar procure atendimento médico e ligue com antecedência para o posto de saúde, UPA ou pronto-socorro</div>                    
                 </div>
 
-
-
             </div>
 
             <nav>
@@ -88,6 +101,7 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
         <header class="head">
             <h1>Covid Status</h1>
             <button id="btn_">C</button>
+            <button id="btn_" onclick="getDate('<?= $country ?>', '<?= $date ?>')">3 Months</button>
         </header>
         <main class="grid container-main center">
             <div class="head-content flex column">
