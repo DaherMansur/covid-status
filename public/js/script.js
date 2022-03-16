@@ -11,10 +11,10 @@ let textColor = document.querySelectorAll('.text-color');
 
 function changeColor(){
     for(let i = 0; i < textColor.length; i++){
-        click(textColor[i],i)
+        console.log(textColor[i])
     }
 }
-
+changeColor()
 
 btn_.addEventListener("click", function bgcolor(){
     if(colorScheme <1){

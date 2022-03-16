@@ -134,8 +134,8 @@ class CovidStatus {
   
 }
 
-//variaveis testes
-#echo '<pre>';
+//variaveis testes'
+#echo '<pre>git';
 #print_r($avgConfirmed);
 
 
