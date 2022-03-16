@@ -30,7 +30,7 @@ btn_.addEventListener("click", function bgcolor(){
             container_.style.backgroundColor = "#E2EDFF";
             aside_.style.backgroundColor = "";
             footer_.style.backgroundColor = "";
-            changeColor().style.backgroundColor = "";
+            textColor.style.color = "";
 
 
             /* body_.removeAttribute(backgroundColor);
@@ -46,7 +46,7 @@ btn_.addEventListener("click", function bgcolor(){
             aside_.style.backgroundColor = "#2D2D2D";
             footer_.style.backgroundColor = "#2D2D2D";
             /* document.querySelectorAll('.text-color')[].style.color = "#fff" */
-            changeColor().style.backgroundColor = "#fff";
+            textColor.style.color = "#fff";
             break
     }
 });
