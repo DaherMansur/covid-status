@@ -49,7 +49,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
 <body>
     <div class="container grid template-1">
         <aside class="nav">
-            <div id="nav-head">
+            <div id="nav-head" class="text-color">
                 <h3>Ajude a diminuir o contágio!</h3>
                 <div class="prev">
                     <div class="prev-ico"><img src="/public/images/covid-icons/Patient.png" alt=""></div>
@@ -80,7 +80,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
                         <div class="button-1">
                             <div class="country">
                                 <ul>
-                                    <li><p><?= $key['Country'] ?></p></li>
+                                    <li><p class="text-color"><?= $key['Country'] ?></p></li>
                                 </ul>
                             </div>
                             <div class="country-nmbrs">
@@ -115,7 +115,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
             <div class="content"></div>
         </main>
         <footer>
-            <p>references and credits ~</p>
+            <p class="text-color">references and credits ~</p>
         </footer>
     </div>
 

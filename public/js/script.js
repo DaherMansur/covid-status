@@ -7,7 +7,13 @@ let main_ = document.querySelector('main');
 let container_ = document.querySelector('.container');
 let aside_ = document.querySelector('aside');
 let footer_ = document.querySelector('footer');
-let highcharts_bg = document.querySelector('.highcharts-background');
+let textColor = document.querySelectorAll('.text-color');
+
+function changeColor(){
+    for(let i = 0; i < textColor.length; i++){
+        click(textColor[i],i)
+    }
+}
 
 
 btn_.addEventListener("click", function bgcolor(){
@@ -19,11 +25,19 @@ btn_.addEventListener("click", function bgcolor(){
 
     switch (colorScheme){
         case 0:
-            body_.style.backgroundColor = "#E2EDFF";
+            body_.style.backgroundColor = "";
             main_.style.backgroundColor = "#E2EDFF";
             container_.style.backgroundColor = "#E2EDFF";
-            aside_.style.backgroundColor = "#1e2140";
-            footer_.style.backgroundColor = "#1e2140";
+            aside_.style.backgroundColor = "";
+            footer_.style.backgroundColor = "";
+            changeColor().style.backgroundColor = "";
+
+
+            /* body_.removeAttribute(backgroundColor);
+            main_.style.backgroundColor = "#E2EDFF";
+            container_.style.backgroundColor = "#E2EDFF";
+            aside_.removeAttribute("background-color");
+            footer_.removeAttribute(backgroundColor); */
             break
         case 1:
             body_.style.backgroundColor = "#c1c1c1";
@@ -31,7 +45,8 @@ btn_.addEventListener("click", function bgcolor(){
             container_.style.backgroundColor = "#c1c1c1";
             aside_.style.backgroundColor = "#2D2D2D";
             footer_.style.backgroundColor = "#2D2D2D";
+            /* document.querySelectorAll('.text-color')[].style.color = "#fff" */
+            changeColor().style.backgroundColor = "#fff";
             break
     }
 });
-
