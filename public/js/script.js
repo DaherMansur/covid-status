@@ -9,12 +9,14 @@ let aside_ = document.querySelector('aside');
 let footer_ = document.querySelector('footer');
 let textColor = document.querySelectorAll('.text-color');
 
+let a
+
 function changeColor(){
     for(let i = 0; i < textColor.length; i++){
-        console.log(textColor[i])
+        textColor[i].style.color = a;
     }
 }
-changeColor()
+
 
 btn_.addEventListener("click", function bgcolor(){
     if(colorScheme <1){
@@ -24,13 +26,16 @@ btn_.addEventListener("click", function bgcolor(){
     }
 
     switch (colorScheme){
+        
         case 0:
+            a = '#383838'
             body_.style.backgroundColor = "";
             main_.style.backgroundColor = "#E2EDFF";
             container_.style.backgroundColor = "#E2EDFF";
             aside_.style.backgroundColor = "";
             footer_.style.backgroundColor = "";
-            textColor.style.color = "";
+            changeColor();
+
 
 
             /* body_.removeAttribute(backgroundColor);
@@ -40,13 +45,14 @@ btn_.addEventListener("click", function bgcolor(){
             footer_.removeAttribute(backgroundColor); */
             break
         case 1:
+            a = '#fff'
             body_.style.backgroundColor = "#c1c1c1";
             main_.style.backgroundColor = "#c1c1c1";
             container_.style.backgroundColor = "#c1c1c1";
             aside_.style.backgroundColor = "#2D2D2D";
             footer_.style.backgroundColor = "#2D2D2D";
+            changeColor();
             /* document.querySelectorAll('.text-color')[].style.color = "#fff" */
-            textColor.style.color = "#fff";
             break
     }
 });
