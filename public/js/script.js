@@ -35,14 +35,6 @@ btn_.addEventListener("click", function bgcolor(){
             aside_.style.backgroundColor = "";
             footer_.style.backgroundColor = "";
             changeColor();
-
-
-
-            /* body_.removeAttribute(backgroundColor);
-            main_.style.backgroundColor = "#E2EDFF";
-            container_.style.backgroundColor = "#E2EDFF";
-            aside_.removeAttribute("background-color");
-            footer_.removeAttribute(backgroundColor); */
             break
         case 1:
             a = '#fff'
@@ -52,7 +44,8 @@ btn_.addEventListener("click", function bgcolor(){
             aside_.style.backgroundColor = "#2D2D2D";
             footer_.style.backgroundColor = "#2D2D2D";
             changeColor();
-            /* document.querySelectorAll('.text-color')[].style.color = "#fff" */
             break
     }
 });
+
+//fazer objeto literal para diminuir o tamanho do código

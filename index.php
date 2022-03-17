@@ -74,6 +74,8 @@ $date = date('Y-m-d', strtotime('-3 month'));
 
             </div>
 
+            <hr>
+
             <nav>
                 <?php foreach ($countries as $key) { ?>
                     <a href="?country=<?= $key['Slug'] ?>">
