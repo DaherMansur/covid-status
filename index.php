@@ -182,7 +182,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
 
         series: [{
             type: 'area',
-            name: 'Mortes',
+            name: 'casos',
             data: [<?php foreach ($newCasesConfirmed as $key) {
                             echo '[' . json_encode($key['Date']) . ',' . json_encode($key['Confirmed']) . '],';
                         } ?>]
@@ -239,7 +239,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
 
         series: [{
             type: 'area',
-            name: 'Mortes',
+            name: 'casos',
             data: [<?php foreach ($avgConfirmed as $key) {
                             echo '[' . json_encode($key['Date']) . ',' . json_encode($key['Confirmed']) . '],';
                         } ?>]
