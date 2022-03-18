@@ -107,12 +107,12 @@ $date = date('Y-m-d', strtotime('-3 month'));
                 <div id="graph-1"></div>
                 <div class="graph-descript">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
             </div>
+            <div class="content"></div>
+            <div class="content"></div>
             <div class="head-content flex column">
-                <div id="graph-2"></div>
+            <div id="graph-2"></div>
                 <div class="graph-descript">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
             </div>
-            <div class="content"></div>
-            <div class="content"></div>
             <div class="content"></div>
             <div class="content"></div>
         </main>

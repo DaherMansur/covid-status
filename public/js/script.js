@@ -37,7 +37,7 @@ btn_.addEventListener("click", function bgcolor(){
             changeColor();
             break
         case 1:
-            a = '#fff'
+            a = '#e6e6e6'
             body_.style.backgroundColor = "#c1c1c1";
             main_.style.backgroundColor = "#c1c1c1";
             container_.style.backgroundColor = "#c1c1c1";
@@ -49,3 +49,10 @@ btn_.addEventListener("click", function bgcolor(){
 });
 
 //fazer objeto literal para diminuir o tamanho do código
+
+// fim dark mode button
+
+let graphTitle = document.querySelectorAll('.highcharts-title');
+
+graphTitle[0].innerHTML = "Média de casos por semana";
+graphTitle[1].innerHTML = "Média de mortes por semana";
