@@ -58,6 +58,12 @@ body{
 .color-2{
     background-color: #E2EDFF;
 }
+.text-color-1 p{
+    color: #c7c7c7;
+}
+.text-color-2 p{
+    color: #464646;
+}
 header{
     height: 7vh;
     width: auto;
@@ -66,18 +72,33 @@ header img{
     height: 6vh;
     margin-top: 0.5vh;
 }
-
-
-
-
-
-
-.container{
-    background: #E2EDFF;
-    height: 100%;
-    width: 100%;
+#container{
+    width: 70vw;
+    min-width: 400px;
 }
-
+section{
+    margin-top: 4vh;
+    box-shadow: 0px 0px 20px #999;
+    border-radius: 20px;
+}
+section .graph-descript{
+    padding: 15px;
+}
+section:nth-child(4){
+    margin-bottom: 5vh;
+}
+footer{
+    height: 20vh;
+}
+.highcharts-background{
+    fill: rgba(255, 255, 255, 0);
+}
+.highcharts-grid-line{
+    stroke: rgb(219 218 218);
+}
+.highcharts-credits{
+    display: none;
+}
 
 
 
