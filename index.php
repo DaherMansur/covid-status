@@ -28,6 +28,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/public/images/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <?php
@@ -46,9 +47,12 @@ $date = date('Y-m-d', strtotime('-3 month'));
 
 </head>
 
-<body>
-    <div class="container grid template-1">
-        <aside class="nav">
+<body class="color-2">
+    <header class="flex row row-center column-center color-1"><a href=""><img src="/public/images/logo.png" alt="Covid Status"/></a></header>
+
+
+
+        <!-- <aside class="nav">
             <div id="nav-head" class="text-color">
                 <h3>Ajude a diminuir o contágio!</h3>
                 <div class="prev">
@@ -98,19 +102,17 @@ $date = date('Y-m-d', strtotime('-3 month'));
                     </a>
                 <?php } ?>
             </nav>
-        </aside>
-        <header class="head">
+        </aside> -->
+       <!--   <header class="head">
             <h1>Covid Status</h1>
             <button id="btn_">C</button>
             <button id="dateTime" value="<?= $date ?>">3 Months</button>
-        </header>
-        <main class="grid container-main center">
+        </header> -->
+        <!-- <main class="grid container-main center">
             <div class="head-content flex column">
                 <div id="graph-1"></div>
                 <div class="graph-descript">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
             </div>
-            <!-- <div class="content"></div>
-            <div class="content"></div> -->
             <div class="head-content flex column">
                 <div id="graph-2"></div>
                 <div class="graph-descript">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
@@ -123,11 +125,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
                 <div id="graph-4"></div>
                 <div class="graph-descript">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
             </div>
-        </main>
-        <footer>
-            <p class="text-color">references and credits ~</p>
-        </footer>
-    </div>
+        </main> -->
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
