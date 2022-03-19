@@ -52,25 +52,82 @@ $date = date('Y-m-d', strtotime('-3 month'));
         <a href="">
             <img src="/public/images/logo.png" alt="Covid Status" />
         </a>
+
+        <div id="menu" class="marg-right-sm">
+            <img src="/public/images/wh-menu-icon.png" alt="">
+        </div>
     </header>
-    <div id="container" class="margin-auto">
+
+    <nav>
+        <?php foreach ($countries as $key) { ?>
+            <a href="?country=<?= $key['Slug'] ?>">
+                <div class="flex space-between">
+                    <div class="country">
+                        <ul>
+                            <li>
+                                <p class="text-color-1"><?= $key['Country'] ?></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <img src="public/images/flags/<?= $key['ISO2'] ?>.png" alt="" width="30px">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        <?php } ?>
+    </nav>
+
+    <main id="container" class="margin-auto">
+        <section class="flex row column-center color-2 space-between">
+            <div class="flex row column-center">
+                <div class="flex row-center column-center main-wrapper"><img src="/public/images/flags/br.png" alt=""></div>
+                <h1 class="text-color-2 marg-left">Brasil</h1>
+            </div>
+            <div class="flex row space-between text-color-2">
+                <div class="flex row column-center">
+                    <h2>Total de casos:</h2>
+                    <p class="marg-left-sm">9.999</p>
+                </div>
+                <div class="flex row marg-left column-center">
+                    <h2>Total de mortes:</h2>
+                    <p class="marg-left-sm">9.999</p>
+                </div>
+                <div class="flex row marg-left column-center">
+                    <h2>Casos ativos:</h2>
+                    <p class="marg-left-sm">9.999</p>
+                </div>
+            </div>
+        </section>
         <section class="flex column">
             <div id="graph-1"></div>
-            <div class="graph-descript text-color-2"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p></div>
+            <div class="graph-descript text-color-2">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
         </section>
         <section class="flex column">
             <div id="graph-2"></div>
-            <div class="graph-descript text-color-2"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p></div>
+            <div class="graph-descript text-color-2">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
         </section>
         <section class="flex column">
             <div id="graph-3"></div>
-            <div class="graph-descript text-color-2"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p></div>
+            <div class="graph-descript text-color-2">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
         </section>
         <section class="flex column">
             <div id="graph-4"></div>
-            <div class="graph-descript text-color-2"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p></div>
+            <div class="graph-descript text-color-2">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
         </section>
-    </div>
+    </main>
+
     <footer class="flex column column-center row-center color-1 text-color-1">
         <p>References and credits ~</p>
     </footer>
