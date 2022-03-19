@@ -59,12 +59,16 @@ body{
     background-color: #E2EDFF;
 }
 header{
-    height: 8vh;
+    height: 7vh;
     width: auto;
 }
 header img{
-    height: 5vh;
+    height: 6vh;
+    margin-top: 0.5vh;
 }
+
+
+
 
 
 
