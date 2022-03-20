@@ -138,7 +138,7 @@ nav{
     position: absolute;
     z-index: 2;
     overflow: scroll;
-    display: hidden;
+    /* display: none; */
 }
 nav ul, li, a{
     list-style-type: none;
@@ -150,7 +150,8 @@ nav :hover{
     transition: 0.1s;
 }
 nav::-webkit-scrollbar{
-    width: 7px;
+    width: 3px;
+    height: 3px;
     background-color: #e7e7e7a6;
     border-radius: 4px;
 }
