@@ -108,9 +108,7 @@ header img{
 #menu :hover{
     box-shadow: 0px 0px 5px rgba(202, 202, 202, 0.459), inset 0px 0px 5px rgba(202, 202, 202, 0.459);
 }
-
 /* MAIN */
-
 #container{
     width: 70vw;
     min-width: 400px;
@@ -120,7 +118,6 @@ section{
     box-shadow: 0px 0px 20px #999;
     border-radius: 20px;
 }
-
 /* NAV */
 
 
@@ -138,7 +135,7 @@ nav{
     position: absolute;
     z-index: 2;
     overflow: scroll;
-    /* display: none; */
+    display: none;
 }
 nav ul, li, a{
     list-style-type: none;
@@ -169,10 +166,6 @@ nav img{
     height: 100%;
     width: 100%;
 }
-
-
-
-
 section .graph-descript{
     padding: 15px;
 }
@@ -195,7 +188,7 @@ footer{
     height: 20vh;
 }
 
-/* APP CONFIGS */
+/* CHARTS CONFIG */
 
 .highcharts-background{
     fill: rgba(255, 255, 255, 0);
