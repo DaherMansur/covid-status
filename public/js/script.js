@@ -51,8 +51,3 @@ btn_.addEventListener("click", function bgcolor(){
 //fazer objeto literal para diminuir o tamanho do código
 
 // fim dark mode button
-
-/* let graphTitle = document.querySelectorAll('.highcharts-title');
-
-graphTitle[0].innerHTML = "Média de casos por semana";
-graphTitle[1].innerHTML = "Média de mortes por semana"; */

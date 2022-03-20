@@ -52,40 +52,40 @@ $date = date('Y-m-d', strtotime('-3 month'));
         <a href="">
             <img src="/public/images/logo.png" alt="Covid Status" />
         </a>
-
-        <div id="menu" class="marg-right-sm">
-            <img src="/public/images/wh-menu-icon.png" alt="">
-        </div>
     </header>
 
-    <nav>
-        <?php foreach ($countries as $key) { ?>
-            <a href="?country=<?= $key['Slug'] ?>">
-                <div class="flex space-between">
-                    <div class="country">
-                        <ul>
-                            <li>
-                                <p class="text-color-1"><?= $key['Country'] ?></p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <img src="public/images/flags/<?= $key['ISO2'] ?>.png" alt="" width="30px">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </a>
-        <?php } ?>
-    </nav>
 
     <main id="container" class="margin-auto">
         <section class="flex row column-center color-2 space-between">
-            <div class="flex row column-center">
-                <div class="flex row-center column-center main-wrapper"><img src="/public/images/flags/br.png" alt=""></div>
-                <h1 class="text-color-2 marg-left">Brasil</h1>
+            <div class="flex column">
+                <div class="flex row column-center">
+                    <div class="flex row-center column-center main-wrapper" id="nav-countries"><img src="/public/images/flags/br.png" alt=""></div>
+                    <h1 class="text-color-2 marg-left">Brasil</h1>
+                </div>
+                <nav>
+                    <?php foreach ($countries as $key) { ?>
+                        <a href="?country=<?= $key['Slug'] ?>">
+                            <div id="hover-nav" class="flex column-center space-between">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <div class="flex row-center column-center main-wrapper">
+                                                <img src="public/images/flags/<?= $key['ISO2'] ?>.png" alt="" width="100%">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <p class="text-color-2"><?= $key['Country'] ?></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                </nav>
             </div>
             <div class="flex row space-between text-color-2">
                 <div class="flex row column-center">
