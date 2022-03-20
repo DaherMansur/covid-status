@@ -114,7 +114,7 @@ class CovidStatus {
   }
   
   public function newCases($status){
-    $data = $this->request('country/'.$this->endpoint, $this->params);
+    $data = $this->request('total/country/'.$this->endpoint, $this->params);
     #$status = //Deaths, Confirmed.
 
     $response = [];
