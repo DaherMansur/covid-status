@@ -2,8 +2,6 @@
 
     require "app/apicontroller.php";
 
-    //Página principal
-    
     $params = [];
 
     $country = isset($_GET['country']) ? $_GET['country'] : $country;
@@ -19,6 +17,5 @@
         }
     }
     $covidStatus = new CovidStatus($country, $params);
-    #$country = $covidStatus->getCountry();
     
 ?>

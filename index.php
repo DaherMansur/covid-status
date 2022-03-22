@@ -35,13 +35,6 @@ $date = date('Y-m-d', strtotime('-3 month'));
 
     <title>Covid Status</title>
 
-    <script>
-
-
-
-
-    </script>
-
 </head>
 
 <body class="color-2">

@@ -122,8 +122,18 @@ class CovidStatus {
     for($q=0;$q < count($data); $q++){
       if (!isset($data[$start])) break;
 
-      $response[$q][$status] = $data[$start][$status] - $data[$start-1][$status];
-      $response[$q]['Date'] = substr($data[$start]['Date'], 0, 10);
+      $value = $data[$start][$status] - $data[$start-1][$status];
+      $date = substr($data[$start]['Date'], 0, 10);
+
+      /*
+        Há correções de dados na API,
+        então para deixar mais condizentes com a realidade
+        valores corrigidos terão seus valores igual a 0 
+      */
+      if ($value < 0) $value = 0;
+
+      $response[$q][$status] = $value;
+      $response[$q]['Date'] = $date;
       $start++;
     }
 
