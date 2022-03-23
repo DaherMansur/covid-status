@@ -73,11 +73,15 @@ h2{
 .marg-right-sm{
     margin-right: 1vh;
 }
+:root{
+    --bg-color: #1E2140;
+    --bg-color-2: #fff;
+}
 .color-1{
-    background-color: #1E2140;
+    background-color: var(--bg-color);
 }
 .color-2{
-    background-color: #fff;
+    background-color: var(--bg-color-2);
 }
 .text-color-1{
     color: #c7c7c7;

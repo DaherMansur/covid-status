@@ -1,15 +1,16 @@
 // Javascript
 
-let btn_ = document.querySelector('#btn_')
+/* let btn_ = document.querySelector('#btn_')
 let colorScheme = 0;
 let body_ = document.querySelector('body');
 let main_ = document.querySelector('main');
 let container_ = document.querySelector('.container');
 let aside_ = document.querySelector('aside');
 let footer_ = document.querySelector('footer');
-let textColor = document.querySelectorAll('.text-color');
+let textColor = document.querySelectorAll('.text-color'); */
 
-let a
+
+/* let a
 
 function changeColor(){
     for(let i = 0; i < textColor.length; i++){
@@ -46,8 +47,19 @@ btn_.addEventListener("click", function bgcolor(){
             changeColor();
             break
     }
-});
+}); */
 
 //fazer objeto literal para diminuir o tamanho do código
 
 // fim dark mode button
+
+
+let bgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color');
+let bgColor2 = getComputedStyle(document.documentElement).getPropertyValue('--bg-color-2');
+
+
+
+
+
+
+
