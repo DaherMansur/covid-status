@@ -1,65 +1,54 @@
 // Javascript
 
-/* let btn_ = document.querySelector('#btn_')
-let colorScheme = 0;
-let body_ = document.querySelector('body');
-let main_ = document.querySelector('main');
-let container_ = document.querySelector('.container');
-let aside_ = document.querySelector('aside');
-let footer_ = document.querySelector('footer');
-let textColor = document.querySelectorAll('.text-color'); */
 
+const darkMode = document.querySelector('#darkModeButton');
 
-/* let a
+let section = document.querySelectorAll('section');
+let isActive = false;
+let nav = document.querySelector('nav');
+let darkModeBtn = document.querySelector('#darkModeButtonImg');
 
-function changeColor(){
-    for(let i = 0; i < textColor.length; i++){
-        textColor[i].style.color = a;
+darkMode.addEventListener("click", () => {
+    let a
+
+    if (!isActive) {
+        document.documentElement.style.setProperty('--bg-color', '#2D2D2D');
+        document.documentElement.style.setProperty('--bg-color-2', '#C1C1C1');
+        nav.style.backgroundColor = ('#afafafcc');
+        darkModeBtn.style.boxShadow = ('0px 0px 25px rgb(184, 169, 255)');
+
+        a = "rgba(255, 255, 255, 0.527)";
+
+        isActive = true;
+    } else {
+        document.documentElement.style.setProperty('--bg-color', '#1E2140');
+        document.documentElement.style.setProperty('--bg-color-2', '#fff');
+        nav.style.backgroundColor = ('#ffffffab');
+        darkModeBtn.style.boxShadow = ('0px 0px 5px rgb(184, 169, 255)');
+
+        a = "#fff"
+        isActive = false;
     }
-}
 
-
-btn_.addEventListener("click", function bgcolor(){
-    if(colorScheme <1){
-        colorScheme++ 
-    }else{
-        colorScheme = 0;
+    for (let i = 1; i < section.length; i++) {
+        section[i].style.backgroundColor = a;
     }
+});
 
-    switch (colorScheme){
-        
-        case 0:
-            a = '#383838'
-            body_.style.backgroundColor = "";
-            main_.style.backgroundColor = "#E2EDFF";
-            container_.style.backgroundColor = "#E2EDFF";
-            aside_.style.backgroundColor = "";
-            footer_.style.backgroundColor = "";
-            changeColor();
-            break
-        case 1:
-            a = '#e6e6e6'
-            body_.style.backgroundColor = "#c1c1c1";
-            main_.style.backgroundColor = "#c1c1c1";
-            container_.style.backgroundColor = "#c1c1c1";
-            aside_.style.backgroundColor = "#2D2D2D";
-            footer_.style.backgroundColor = "#2D2D2D";
-            changeColor();
-            break
+/* nav */
+
+let menuBtn = document.getElementById('menuBtn');
+let isNavActive = true;
+
+menuBtn.addEventListener("click", ()=>{
+    
+    if(!isNavActive){
+        nav.style.display = ('none');
+
+        isNavActive = true;
+    }else {
+        nav.style.display = ('block');
+
+        isNavActive = false;
     }
-}); */
-
-//fazer objeto literal para diminuir o tamanho do código
-
-// fim dark mode button
-
-
-let bgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color');
-let bgColor2 = getComputedStyle(document.documentElement).getPropertyValue('--bg-color-2');
-
-
-
-
-
-
-
+})
