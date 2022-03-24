@@ -13,8 +13,7 @@ $totalCountry = $covidStatus->getTotalCountry(); //Listagem total de país
 $newCasesConfirmed = $covidStatus->newCases('Confirmed'); //Novos casos confirmados(perDay)
 $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(perDay)
 
-$date = date('Y-m-d', strtotime('-3 month'));
-
+#$date = date('Y-m-d', strtotime('-3 month'));
 
 /* foreach ($average as $key){
         echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],' ;
@@ -39,18 +38,16 @@ $date = date('Y-m-d', strtotime('-3 month'));
 
 <body class="color-2">
     <header class="flex row row-center column-center color-1">
-        <div id="darkModeButton"><img src="/public/images/darkMode.png" alt="modo escuro" id="darkModeButtonImg"></div>
         <a href="">
-            <img src="/public/images/logo.png" alt="logo covid status" />
+            <img src="/public/images/logo.png" alt="Covid Status" />
         </a>
     </header>
 
 
     <main id="container" class="margin-auto">
-        <section class="flex row column-center wrap color-2 space-between">
-            <div class="flex column" id="menuBtn">
+        <section class="flex row column-center color-2 space-between">
+            <div class="flex column">
                 <div class="flex row column-center">
-                    <img src="/public/images/dropdown.png" alt="menu" class="marg-right-sm" id="dropdown">
                     <div class="flex row-center column-center main-wrapper" id="nav-countries"><img src="/public/images/flags/br.png" alt=""></div>
                     <h1 class="text-color-2 marg-left">Brasil</h1>
                 </div>
@@ -79,7 +76,7 @@ $date = date('Y-m-d', strtotime('-3 month'));
                     <?php } ?>
                 </nav>
             </div>
-            <div class="flex row space-between wrap text-color-2">
+            <div class="flex row space-between text-color-2">
                 <div class="flex row column-center">
                     <h2>Total de casos:</h2>
                     <p class="marg-left-sm">9.999</p>
@@ -97,32 +94,31 @@ $date = date('Y-m-d', strtotime('-3 month'));
         <section class="flex column">
             <div id="graph-1"></div>
             <div class="graph-descript text-color-2">
-                <p>O gráfico demonstra a evolução dos casos de Covid-19 em todo o país, levando em consideração cada caso confirmado por dia desde o início do ano de 2020</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
             </div>
         </section>
         <section class="flex column">
             <div id="graph-2"></div>
             <div class="graph-descript text-color-2">
-                <p>Este gráfico apresenta a média de casos confirmados de Covid-19 num intervalo estipulado de sete dias</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
             </div>
         </section>
         <section class="flex column">
             <div id="graph-3"></div>
             <div class="graph-descript text-color-2">
-                <p>O gráfico apresenta o número de pessoas testadas positivas para COVID-19 e que vieram a óbito por dia</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
             </div>
         </section>
         <section class="flex column">
             <div id="graph-4"></div>
             <div class="graph-descript text-color-2">
-                <p>Este gráfico apresenta a média de pessoas testadas positivas para COVID-19 e que vieram a óbito num intervalo estipulado de sete dias</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
             </div>
         </section>
     </main>
 
     <footer class="flex column column-center row-center color-1 text-color-1">
-        <p>All Data is sourced from Johns Hopkins CSSE</p>
-        <p>Daher Mansur (Front-End Dev) - Rodrigo Dalfré (Back end - Dev)</p>
+        <p>References and credits ~</p>
     </footer>
 
 
@@ -372,7 +368,6 @@ $date = date('Y-m-d', strtotime('-3 month'));
             window.location.href = "?country=" + country + "&from=" + date
         })
     </script>
-
     <script src="public/js/script.js"></script>
 </body>
 

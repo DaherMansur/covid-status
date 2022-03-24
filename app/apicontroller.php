@@ -59,9 +59,29 @@ class CovidStatus {
     $data = $this->request('total/country/'.$this->endpoint);
 
     if(empty($data) && !is_array($data)){
-        return false;
+      return false;
     }
-    return end($data);
+
+    foreach($data as $key => $value){
+      $confirmed = $value['Confirmed'];
+      $deaths = $value['Deaths'];
+      $active = $value['Active'];
+      
+      /*Formatação de números deve ser
+        xB(bilhões)
+        xxx.xM (milhões)
+        xxxK(mil)
+        xxxxx(menos de 100mil)
+      */
+
+      $c = number_format($confirmed, 0, 0, '.');
+      if(strlen($confirmed) < 6) echo $confirmed.'<br>'; // Menos de mil
+      elseif(strlen($confirmed) >= 6 && strlen($confirmed) < 7) echo substr($c, 0, 3).'K<br>';
+      elseif(strlen($confirmed) >= 7 && strlen($confirmed) <= 9) echo substr($c, 0, 4).'M<br>';
+      elseif(strlen($confirmed) >= 10) echo substr($c, 0, 4).'B<br>';
+
+    }
+    #return end($data);
   }
   
   public function averageWeeks($status){
@@ -153,8 +173,9 @@ class CovidStatus {
 //   echo $death.'<br>';
 // }
 
-
-
+echo '<pre>';
+$covidStatus = new CovidStatus('brazil', $params = array());
+$covidStatus->getTotalCountry();
 
 
 ?>
