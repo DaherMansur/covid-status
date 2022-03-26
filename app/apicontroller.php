@@ -62,26 +62,35 @@ class CovidStatus {
       return false;
     }
 
-    foreach($data as $key => $value){
-      $confirmed = $value['Confirmed'];
-      $deaths = $value['Deaths'];
-      $active = $value['Active'];
-      
-      /*Formatação de números deve ser
-        xB(bilhões)
-        xxx.xM (milhões)
-        xxxK(mil)
-        xxxxx(menos de 100mil)
-      */
+    $confirmed = array_column($data, 'Confirmed');
+    $deaths = array_column($data, 'Deaths');
+    $active = array_column($data, 'Active');
 
-      $c = number_format($confirmed, 0, 0, '.');
-      if(strlen($confirmed) < 6) echo $confirmed.'<br>'; // Menos de mil
-      elseif(strlen($confirmed) >= 6 && strlen($confirmed) < 7) echo substr($c, 0, 3).'K<br>';
-      elseif(strlen($confirmed) >= 7 && strlen($confirmed) <= 9) echo substr($c, 0, 4).'M<br>';
-      elseif(strlen($confirmed) >= 10) echo substr($c, 0, 4).'B<br>';
+    $response = [];
+    
+    for($q = 0; $q < 3; $q++){
+      switch($q){
+        case 0:
+          $num = end($confirmed);
+          $case = 'Confirmed';
+          break;
+        case 1:
+          $num = end($deaths);
+          $case = 'Deaths';
+          break;
+        case 2: 
+          $num = end($active);
+          $case = 'Active';
+          break;
+      }
 
+      $c = number_format($num, 0, 0, '.');
+      if(strlen($num) < 6) $response[$case] = $num.'<br>'; // Menos de mil
+      elseif(strlen($num) >= 6 && strlen($num) < 7) $response[$case] = substr($c, 0, 3).'K<br>';
+      elseif(strlen($num) >= 7 && strlen($num) <= 9) $response[$case] = substr($c, 0, 4).'M<br>';
+      elseif(strlen($num) >= 10) $response[$q] = $response[$case] = substr($c, 0, 4).'B<br>';
     }
-    #return end($data);
+    return $response;
   }
   
   public function averageWeeks($status){
@@ -173,7 +182,7 @@ class CovidStatus {
 //   echo $death.'<br>';
 // }
 
-echo '<pre>';
+#echo '<pre>';
 $covidStatus = new CovidStatus('brazil', $params = array());
 $covidStatus->getTotalCountry();
 
