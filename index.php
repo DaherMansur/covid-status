@@ -31,7 +31,6 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-
     <title>Covid Status</title>
 
 </head>
@@ -76,20 +75,22 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
                     <?php } ?>
                 </nav>
             </div>
-            <div class="flex row space-between text-color-2">
-                <div class="flex row column-center">
-                    <h2>Total de casos:</h2>
-                    <p class="marg-left-sm">9.999</p>
+            <?php foreach($totalCountry as $key) { ?>
+                <div class="flex row space-between text-color-2">
+                    <div class="flex row column-center">
+                        <h2>Total de casos:</h2>
+                        <p class="marg-left-sm"><?= $key['Confirmed'];?></p>
+                    </div>
+                    <div class="flex row marg-left column-center">
+                        <h2>Total de mortes:</h2>
+                        <p class="marg-left-sm"><?= $key['Deaths'];?></p>
+                    </div>
+                    <div class="flex row marg-left column-center">
+                        <h2>Casos ativos:</h2>
+                        <p class="marg-left-sm"><?= $key['Active'];?></p>
+                    </div>
                 </div>
-                <div class="flex row marg-left column-center">
-                    <h2>Total de mortes:</h2>
-                    <p class="marg-left-sm">9.999</p>
-                </div>
-                <div class="flex row marg-left column-center">
-                    <h2>Casos ativos:</h2>
-                    <p class="marg-left-sm">9.999</p>
-                </div>
-            </div>
+            <?php } ?>
         </section>
         <section class="flex column">
             <div id="graph-1"></div>
@@ -136,11 +137,17 @@ $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(p
                     'Selecione a área para dar zoom' : 'Pinch the chart to zoom in'
             },
             xAxis: {
-                type: ''
+                type: '',
             },
+            plotOptions: {
+        series: {
+            pointStart: Date.UTC(2010, 0, 1),
+            pointInterval: 24 * 3600 * 1000 // one day
+        }
+    },
             yAxis: {
                 title: {
-                    text: 'Novos casos'
+                    text: 'Novos casos',
                 }
             },
             legend: {

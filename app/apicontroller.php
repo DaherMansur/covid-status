@@ -85,10 +85,10 @@ class CovidStatus {
       }
 
       $c = number_format($num, 0, 0, '.');
-      if(strlen($num) < 6) $response[$case] = $num.'<br>'; // Menos de mil
-      elseif(strlen($num) >= 6 && strlen($num) < 7) $response[$case] = substr($c, 0, 3).'K<br>';
-      elseif(strlen($num) >= 7 && strlen($num) <= 9) $response[$case] = substr($c, 0, 4).'M<br>';
-      elseif(strlen($num) >= 10) $response[$q] = $response[$case] = substr($c, 0, 4).'B<br>';
+      if(strlen($num) < 6) $response[0][$case] = $num.'<br>'; // Menos de 10mil
+      elseif(strlen($num) >= 6 && strlen($num) < 7) $response[0][$case] = substr($c, 0, 3).'K<br>'; //Mil
+      elseif(strlen($num) >= 7 && strlen($num) <= 9) $response[0][$case] = substr($c, 0, 4).'M<br>'; //Milhão
+      elseif(strlen($num) >= 10) $response[$q] = $response[0][$case] = substr($c, 0, 4).'B<br>'; //Bilhão
     }
     return $response;
   }
@@ -148,12 +148,13 @@ class CovidStatus {
 
     $response = [];
     $start = 1;
-    for($q=0;$q < count($data); $q++){
+    for($q=1;$q < count($data); $q++){
       if (!isset($data[$start])) break;
 
-      $value = $data[$start][$status] - $data[$start-1][$status];
+      $value = abs($data[$start][$status]) - abs($data[$start-1][$status]);
+      
       $date = substr($data[$start]['Date'], 0, 10);
-
+      #echo $value.'---'.$date.'<br>';
       /*
         Há correções de dados na API,
         então para deixar mais condizentes com a realidade
@@ -182,9 +183,10 @@ class CovidStatus {
 //   echo $death.'<br>';
 // }
 
-#echo '<pre>';
-$covidStatus = new CovidStatus('brazil', $params = array());
-$covidStatus->getTotalCountry();
+// echo '<pre>';
+// $covidStatus = new CovidStatus('canada', $params = array());
+// $newCases = $covidStatus->newCases('Confirmed');
 
+#print_r($newCases);
 
 ?>
