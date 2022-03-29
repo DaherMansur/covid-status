@@ -7,7 +7,8 @@ require "app/config.php";
 $avgConfirmed = $covidStatus->averageWeeks('Confirmed'); //Media semanal (Confirmados)
 $avgDeaths = $covidStatus->averageWeeks('Deaths'); //Media semanal (Mortes)
 
-$countries = $covidStatus->getCountry(); //Lista de países(nome, slug, IO)
+$countries = $covidStatus->getCountry('all'); //Listagem de países(nome, slug, IO)
+$countrySelect = $covidStatus->getCountry(); //Lista apenas um país
 $totalCountry = $covidStatus->getTotalCountry(); //Listagem total de país
 
 $newCasesConfirmed = $covidStatus->newCases('Confirmed'); //Novos casos confirmados(perDay)
@@ -51,8 +52,10 @@ $date = date('Y-m-d', strtotime('-3 month'));
             <div class="flex column" id="menuBtn">
                 <div class="flex row column-center">
                     <img src="/public/images/dropdown.png" alt="menu" class="marg-right-sm" id="dropdown">
-                        <div class="flex row-center column-center main-wrapper" id="nav-countries"><img src="/public/images/flags/br.png" alt=""></div>
-                        <h1 class="text-color-2 marg-left">Brasil</h1>
+                    <?php foreach($countrySelect as $key) { ?>
+                        <div class="flex row-center column-center main-wrapper" id="nav-countries"><img src="/public/images/flags/<?=$key['ISO2'] ?>.png" alt=""></div>
+                        <h1 class="text-color-2 marg-left"><?= $key['Country'] ?></h1>
+                    <?php } ?>
                 </div>
                 <nav>
                     <?php foreach ($countries as $key) { ?>
@@ -304,8 +307,6 @@ $date = date('Y-m-d', strtotime('-3 month'));
             }]
         });
 
-
-
         Highcharts.chart('graph-4', {
             chart: {
                 zoomType: 'x'
@@ -364,18 +365,6 @@ $date = date('Y-m-d', strtotime('-3 month'));
             }]
         });
     </script>
-
-    <script>
-        const dateTime = document.querySelector('#dateTime')
-        dateTime.addEventListener('click', () => {
-
-            let country = '<?= $country ?>'
-            let date = '<?= $date ?>'
-
-            window.location.href = "?country=" + country + "&from=" + date
-        })
-    </script>
-
     <script src="public/js/script.js"></script>
 </body>
 

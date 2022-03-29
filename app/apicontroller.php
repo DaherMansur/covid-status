@@ -44,16 +44,27 @@ class CovidStatus {
     return json_decode($res, true);
   }
 
-  public function getCountry(){
+  public function getCountry($param = null){
     $data = $this->request('countries');
 
     if(empty($data) && !is_array($data)){
       return false;
     }
-
-    array_multisort($data);
-    return $data;
-  }
+    
+    if($param == 'all'){
+      array_multisort($data);
+      return $data;
+    } 
+    
+    $slug = array_column($data, 'Slug');
+    $slugValue = array_search($this->endpoint, $slug);
+    
+    $response = [];
+    foreach($data as $key){
+      $response[0] = $data[$slugValue];
+    }
+    return $response;
+  } 
 
   public function getTotalCountry(){
     $data = $this->request('total/country/'.$this->endpoint);
