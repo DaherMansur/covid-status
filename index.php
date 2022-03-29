@@ -51,8 +51,8 @@ $date = date('Y-m-d', strtotime('-3 month'));
             <div class="flex column" id="menuBtn">
                 <div class="flex row column-center">
                     <img src="/public/images/dropdown.png" alt="menu" class="marg-right-sm" id="dropdown">
-                    <div class="flex row-center column-center main-wrapper" id="nav-countries"><img src="/public/images/flags/br.png" alt=""></div>
-                    <h1 class="text-color-2 marg-left">Brasil</h1>
+                        <div class="flex row-center column-center main-wrapper" id="nav-countries"><img src="/public/images/flags/br.png" alt=""></div>
+                        <h1 class="text-color-2 marg-left">Brasil</h1>
                 </div>
                 <nav>
                     <?php foreach ($countries as $key) { ?>
@@ -79,20 +79,23 @@ $date = date('Y-m-d', strtotime('-3 month'));
                     <?php } ?>
                 </nav>
             </div>
+            
+            <?php foreach($totalCountry as $key) { ?>
             <div class="flex row space-between wrap text-color-2">
                 <div class="flex row column-center">
                     <h2>Total de casos:</h2>
-                    <p class="marg-left-sm">9.999</p>
+                    <p class="marg-left-sm"><?= $totalCountry[0]['Confirmed']; ?></p>
                 </div>
                 <div class="flex row marg-left column-center">
                     <h2>Total de mortes:</h2>
-                    <p class="marg-left-sm">9.999</p>
+                    <p class="marg-left-sm"><?= $totalCountry[0]['Deaths']; ?></p>
                 </div>
                 <div class="flex row marg-left column-center">
                     <h2>Casos ativos:</h2>
-                    <p class="marg-left-sm">9.999</p>
+                    <p class="marg-left-sm"><?= $totalCountry[0]['Active']; ?></p>
                 </div>
             </div>
+            <?php } ?>
         </section>
         <section class="flex column">
             <div id="graph-1"></div>
