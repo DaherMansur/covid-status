@@ -15,10 +15,10 @@ class CovidStatus {
     $curl = curl_init();
     $url = 'https://api.covid19api.com/' .$endpoint. '?';
 
-    // Query String = Data format. 
-    //?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
+    /* Query String = Data format. 
+       ?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
 
-    //from=2021-01-01&to=2021-10-21
+       from=2021-01-01&to=2021-10-21 */
     if(is_array($params)){
       foreach($params as $param => $value){
         if(empty($params)) continue;
@@ -47,7 +47,7 @@ class CovidStatus {
   public function getCountry($param = null){
     $data = $this->request('countries');
 
-    if(empty($data) && !is_array($data)){
+    if(empty($data) || !is_array($data)){
       return false;
     }
     
@@ -66,10 +66,12 @@ class CovidStatus {
     return $response;
   } 
 
-  public function getTotalCountry(){
-    $data = $this->request('total/country/'.$this->endpoint);
+  public function getTotalCountry($country = null){
 
-    if(empty($data) && !is_array($data)){
+    $country = !$country ? $this->endpoint : $country;  
+    $data = $this->request('total/country/'.$country);
+
+    if(empty($data) || !is_array($data)){
       return false;
     }
 
@@ -96,10 +98,10 @@ class CovidStatus {
       }
 
       $c = number_format($num, 0, 0, '.');
-      if(strlen($num) < 6) $response[0][$case] = $num.'<br>'; // Menos de 10mil
-      elseif(strlen($num) >= 6 && strlen($num) < 7) $response[0][$case] = substr($c, 0, 3).'K<br>'; //Mil
-      elseif(strlen($num) >= 7 && strlen($num) <= 9) $response[0][$case] = substr($c, 0, 4).'M<br>'; //Milhão
-      elseif(strlen($num) >= 10) $response[$q] = $response[0][$case] = substr($c, 0, 4).'B<br>'; //Bilhão
+      if(strlen($num) < 6) $response[$case] = $num; // Menos de 10mil
+      elseif(strlen($num) >= 6 && strlen($num) < 7) $response[$case] = substr($c, 0, 3).'K'; //Mil
+      elseif(strlen($num) >= 7 && strlen($num) <= 9) $response[$case] = substr($c, 0, 4).'M'; //Milhão
+      elseif(strlen($num) >= 10) $response[$case] = substr($c, 0, 4).'B'; //Bilhão
     }
     return $response;
   }
@@ -180,23 +182,37 @@ class CovidStatus {
 
     return $response;
   }
-  //function worldwide
-  #/summary?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
   
+  public function notFound(){
+    $data = $this->request('countries');
+
+    $total = count($data) - 1;
+    $slug = array_column($data, 'Slug');
+    
+    $response = [];
+    for($q = 0; $q < 4; $q++){
+      $random = mt_rand(0, $total);
+
+      $country = $this->getTotalCountry($slug[$random]);
+      if(!$country){ 
+        $q--; //Remover -1
+        continue;
+      }
+    
+      $info = array_merge($data[$random], $country);
+      $response[] = $info;
+      
+    }
+    return $response;
+  }
+
 }
 
-//variaveis testes'
-#echo '<pre>git';
-#print_r($avgConfirmed);
-
-
-// foreach($deaths as $death){
-//   echo $death.'<br>';
-// }
-
 // echo '<pre>';
-$covidStatus = new CovidStatus('guernsey', $params = array());
-$newCases = $covidStatus->newCases('Confirmed');
+#$covidStatus = new CovidStatus('guernsey', $params = array());
+#$newCases = $covidStatus->newCases('Confirmed');
+#$notFound = $covidStatus->notFound();
+
 
 // if(empty($newCases)){
 //   echo 'deu erro';

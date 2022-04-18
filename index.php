@@ -14,9 +14,6 @@ $totalCountry = $covidStatus->getTotalCountry(); //Listagem total de país
 $newCasesConfirmed = $covidStatus->newCases('Confirmed'); //Novos casos confirmados(perDay)
 $newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(perDay)
 
-$date = date('Y-m-d', strtotime('-3 month'));
-
-
 /* foreach ($average as $key){
         echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],' ;
     } */
@@ -82,23 +79,22 @@ $date = date('Y-m-d', strtotime('-3 month'));
                     <?php } ?>
                 </nav>
             </div>
-            
-            <?php foreach($totalCountry as $key) { ?>
+        
             <div class="flex row space-between wrap text-color-2">
                 <div class="flex row column-center">
                     <h2>Total de casos:</h2>
-                    <p class="marg-left-sm"><?= $totalCountry[0]['Confirmed']; ?></p>
+                    <p class="marg-left-sm"><?= $totalCountry['Confirmed']; ?></p>
                 </div>
                 <div class="flex row marg-left column-center">
                     <h2>Total de mortes:</h2>
-                    <p class="marg-left-sm"><?= $totalCountry[0]['Deaths']; ?></p>
+                    <p class="marg-left-sm"><?= $totalCountry['Deaths']; ?></p>
                 </div>
                 <div class="flex row marg-left column-center">
                     <h2>Casos ativos:</h2>
-                    <p class="marg-left-sm"><?= $totalCountry[0]['Active']; ?></p>
+                    <p class="marg-left-sm"><?= $totalCountry['Active']; ?></p>
                 </div>
             </div>
-            <?php } ?>
+            
         </section>
         <section class="flex column">
             <div id="graph-1"></div>
