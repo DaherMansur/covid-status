@@ -3,20 +3,6 @@
 $country = 'brazil';
 require "app/config.php";
 
-#from=2021-01-01&to=2021-10-21
-$avgConfirmed = $covidStatus->averageWeeks('Confirmed'); //Media semanal (Confirmados)
-$avgDeaths = $covidStatus->averageWeeks('Deaths'); //Media semanal (Mortes)
-
-$countries = $covidStatus->getCountry('all'); //Listagem de países(nome, slug, IO)
-$countrySelect = $covidStatus->getCountry(); //Lista apenas um país
-$totalCountry = $covidStatus->getTotalCountry(); //Listagem total de país
-
-$newCasesConfirmed = $covidStatus->newCases('Confirmed'); //Novos casos confirmados(perDay)
-$newCasesDeaths = $covidStatus->newCases('Deaths'); //Novas mortes confirmadas(perDay)
-
-/* foreach ($average as $key){
-        echo '['.json_encode($key['Date']).','.json_encode($key['Confirmed']).'],' ;
-    } */
 ?>
 
 <!DOCTYPE html>
