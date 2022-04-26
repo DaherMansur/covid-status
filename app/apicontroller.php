@@ -108,7 +108,6 @@ class CovidStatus {
   
   public function averageWeeks($status){
     $data = $this->request('total/country/'.$this->endpoint, $this->params);
-    // $status = //Deaths, Confirmed. (Parametro na function)
 
     $return = [];
     $start = 0;
@@ -205,20 +204,6 @@ class CovidStatus {
     }
     return $response;
   }
-
 }
-
-// echo '<pre>';
-#$covidStatus = new CovidStatus('guernsey', $params = array());
-#$newCases = $covidStatus->newCases('Confirmed');
-#$notFound = $covidStatus->notFound();
-
-
-// if(empty($newCases)){
-//   echo 'deu erro';
-// } else { 
-//   print_r($newCases);
-// }
-
 
 ?>

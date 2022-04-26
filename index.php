@@ -1,8 +1,6 @@
 <?php
-
-$country = 'brazil';
-require "app/config.php";
-
+    $country = 'brazil';
+    require "app/config.php";
 ?>
 
 <!DOCTYPE html>
