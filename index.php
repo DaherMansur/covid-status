@@ -20,6 +20,10 @@
 </head>
 
 <body class="color-2">
+    <?php 
+        /* echo('<pre>');
+        print_r($countries); */
+    ?>
     <header class="flex row row-center column-center color-1">
         <div id="darkModeButton"><img src="/public/images/darkMode.png" alt="modo escuro" id="darkModeButtonImg"></div>
         <a href="">
