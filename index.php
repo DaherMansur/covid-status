@@ -20,10 +20,6 @@
 </head>
 
 <body class="color-2">
-    <?php 
-        /* echo('<pre>');
-        print_r($countries); */
-    ?>
     <header class="flex row row-center column-center color-1">
         <div id="darkModeButton"><img src="/public/images/darkMode.png" alt="modo escuro" id="darkModeButtonImg"></div>
         <a href="">
@@ -32,7 +28,7 @@
     </header>
 
 
-    <main id="container" class="margin-auto">
+    <main class="container margin-auto">
         <section class="flex row column-center wrap color-2 space-between">
             <div class="flex column" id="menuBtn">
                 <div class="flex row column-center">

@@ -6,6 +6,7 @@ const darkModeTrigger = document.querySelector('#darkModeButton');
 let section = document.querySelectorAll('section');
 let nav = document.querySelector('nav');
 let darkModeBtn = document.querySelector('#darkModeButtonImg');
+let body = document.querySelector('body');
 
 //criando cookies
 
@@ -21,7 +22,7 @@ function createCookie(name, value) {
 function getCookieValue(line, value) {
     var cookies = document.cookie;
     let allCookies = cookies.split(';')[line];
-    let cookieValue = allCookies.split('=')[value];    
+    let cookieValue = allCookies.split('=')[value];
     return cookieValue;
 }
 
@@ -30,26 +31,34 @@ function getCookieValue(line, value) {
 function cookieValidation(a, b) {
     if (document.cookie == '') {
         createCookie(a, b)
-    } else {
+    } /* else {
         console.log('cookie already exists!')
-    }
+    } */
 }
 
 // preset de cores para o Dark Mode
 
 function darkModeOff() {
-    document.documentElement.style.setProperty('--bg-color', '#1E2140');
-    document.documentElement.style.setProperty('--bg-color-2', '#fff');
-    nav.style.backgroundColor = ('#ffffffab');
-    darkModeBtn.style.boxShadow = ('0px 0px 5px rgb(184, 169, 255)');
-    a = "#fff"
+    if (window.location.href == 'http://localhost:8080/') {
+        document.documentElement.style.setProperty('--bg-color', '#1E2140');
+        document.documentElement.style.setProperty('--bg-color-2', '#fff');
+        nav.style.backgroundColor = ('#ffffffab');
+        darkModeBtn.style.boxShadow = ('0px 0px 5px rgb(184, 169, 255)');
+        a = "#fff"
+    } else {
+        body.style.backgroundColor = ('#fff');
+    }
 }
 function darkModeOn() {
-    document.documentElement.style.setProperty('--bg-color', '#2D2D2D');
-    document.documentElement.style.setProperty('--bg-color-2', '#C1C1C1');
-    nav.style.backgroundColor = ('#afafafcc');
-    darkModeBtn.style.boxShadow = ('0px 0px 25px rgb(184, 169, 255)');
-    a = "rgba(255, 255, 255, 0.527)";
+    if (window.location.href == 'http://localhost:8080/') {
+        document.documentElement.style.setProperty('--bg-color', '#2D2D2D');
+        document.documentElement.style.setProperty('--bg-color-2', '#C1C1C1');
+        nav.style.backgroundColor = ('#afafafcc');
+        darkModeBtn.style.boxShadow = ('0px 0px 25px rgb(184, 169, 255)');
+        a = "rgba(255, 255, 255, 0.527)";
+    } else {
+        body.style.backgroundColor = ('#C1C1C1');
+    }
 }
 
 //auto dark-mode usando cookie
@@ -70,16 +79,19 @@ cookieSettings();
 
 //botão dark mode
 
-let y = false;
+if (getCookieValue(0, 1) == 'false') {
+    var y = false
+} else {
+    var y = true
+}
 
-darkModeTrigger.addEventListener('click', ()=>{
+darkModeTrigger.addEventListener('click', () => {
     let a
-    console.log('biriba funcionou!')
-    if(y == false){
+    if (y == false) {
         darkModeOn();
         createCookie('darkModeCookie', 'true')
         y = true;
-    }else {
+    } else {
         darkModeOff();
         createCookie('darkModeCookie', 'false');
         y = false;

@@ -76,6 +76,9 @@ h2{
 .marg-right-sm{
     margin-right: 1vh;
 }
+.marg-top-sm{
+    margin-top: 1vh;
+}
 :root{
     --bg-color: #1E2140;
     --bg-color-2: #fff;
@@ -91,6 +94,12 @@ h2{
 }
 .text-color-2{
     color: #626262;
+}
+.text-color-3 {
+    color: #ffffff;
+}
+.text-color-4{
+    color:rgb(56 56 56);
 }
 
 /* HEADER */
@@ -117,7 +126,7 @@ header a img{
 
 /* MAIN */
 
-#container{
+.container{
     width: 70vw;
     min-width: 400px;
 }
@@ -228,4 +237,43 @@ footer{
     section{
         flex-direction: column;
     }
+}
+
+/* 404 */
+#main404{
+    height: 100vh;
+}
+#img404{
+    width: 15vw;
+}
+#cardArea{
+    width: 830px;
+    margin-top: 5vh;
+}
+.card404{
+    height: auto;
+    width: 200px;
+    background-color: rgb(0 161 255);
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px #999;
+    cursor: pointer;
+}
+.card404 ul, li, h2 {
+    margin: 6px;
+    margin-top: 15px;
+}
+
+.cardFlag{
+    height: 50px;
+    width: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-top: -25px;
+    background-color: rgb(118, 193, 255);
+    overflow: Hidden;
+    
+}
+.cardFlag img{
+    width: 75px;
+    height: 50px;
 }
