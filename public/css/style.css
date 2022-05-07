@@ -64,6 +64,9 @@ h2{
 .margin-auto{
     margin: auto;
 }
+.marg{
+    margin: 1vh;
+}
 .marg-left{
     margin-left: 1.5vw;
 }
@@ -258,11 +261,6 @@ footer{
     box-shadow: 0px 0px 20px #999;
     cursor: pointer;
 }
-.card404 ul, li, h2 {
-    margin: 6px;
-    margin-top: 15px;
-}
-
 .cardFlag{
     height: 50px;
     width: 50px;

@@ -28,9 +28,9 @@ print_r($countries); */
             <?php foreach ($countries as $key => $value) { ?>
                 <div class="card404">
                     <div class="cardFlag margin-auto"><?php echo ('<img src="./public/images/flags/' . $countries[$key]['ISO2'] . '.png" />') ?></div>
-                    <h2 class="text-color-3"><?php echo $countries[$key]['Country'] ?></h2>
+                    <h2 class="text-color-3 marg"><?php echo $countries[$key]['Country'] ?></h2>
                     <div>
-                        <ul class="text-color-3">
+                        <ul class="text-color-3 marg">
                             <li>Confirmed cases: <br/><div class="text-color-4"><?php echo $countries[$key]['Confirmed']; ?></div></li>
                             <li>Active cases: <br/><div class="text-color-4"><?php echo $countries[$key]['Active']; ?></div></li>
                             <li>Deaths: <br/><div class="text-color-4"><?php echo $countries[$key]['Deaths']; ?></div></li>
