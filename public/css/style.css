@@ -134,9 +134,9 @@ header a img{
     min-width: 400px;
 }
 section{
-    margin-top: 4vh;
-    box-shadow: 0px 0px 20px #999;
-    border-radius: 20px;
+    margin-top: 2.5vh;
+    box-shadow: 0px 0px 10px #999;
+    border-radius: 10px;
 }
 
 /* NAV */
@@ -257,8 +257,8 @@ footer{
     height: auto;
     width: 200px;
     background-color: rgb(0 161 255);
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px #999;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #999;
     cursor: pointer;
 }
 .cardFlag{
