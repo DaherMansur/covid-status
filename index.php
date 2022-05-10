@@ -27,7 +27,7 @@
     </header>
 
     <main class="container margin-auto">
-        <section class="flex row column-center wrap color-2 space-between">
+        <section class="flex row column-center wrap space-between">
             <div class="flex column" id="menuBtn">
                 <div class="flex row column-center">
                     <img src="/public/images/dropdown.png" alt="menu" class="marg-right-sm" id="dropdown">
