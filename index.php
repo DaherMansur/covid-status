@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-
     <title>Covid Status</title>
 
 </head>
@@ -26,7 +25,6 @@
             <img src="/public/images/logo.png" alt="logo covid status" />
         </a>
     </header>
-
 
     <main class="container margin-auto">
         <section class="flex row column-center wrap color-2 space-between">

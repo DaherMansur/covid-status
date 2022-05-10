@@ -1,8 +1,6 @@
 <?php
-require "app/config.php";
-$countries = $covidStatus->notFound(); //Listagem de países que existem valores
-/* echo ('<pre>');
-print_r($countries); */
+    require "app/config.php";
+    $countries = $covidStatus->notFound(); //Listagem de países que existem valores
 ?>
 <!DOCTYPE html>
 <html lang="en">

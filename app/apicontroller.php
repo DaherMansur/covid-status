@@ -166,7 +166,6 @@ class CovidStatus {
       $value = abs($data[$start][$status]) - abs($data[$start-1][$status]);
       
       $date = substr($data[$start]['Date'], 0, 10);
-      #echo $value.'---'.$date.'<br>';
       /*
         Há correções de dados na API,
         então para deixar mais condizentes com a realidade
@@ -200,7 +199,6 @@ class CovidStatus {
     
       $info = array_merge($data[$random], $country);
       $response[] = $info;
-      
     }
     return $response;
   }
