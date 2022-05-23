@@ -6,7 +6,7 @@ Dashboard informativo desenvolvido com tecnologias como `HTML`, `CSS`, `Javascri
 
 ## Preview
 
-<img alt="preview" src="https://i.imgur.com/5DqGxXQ.gif" align="center"/>
+<p align="center"><img alt="preview" src="https://i.imgur.com/5DqGxXQ.gif"/></p>
 
 ## Autores
 
