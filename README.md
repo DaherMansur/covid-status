@@ -6,7 +6,7 @@ Dashboard informativo desenvolvido com tecnologias como `HTML`, `CSS`, `Javascri
 
 ## Preview
 
-![App Screenshot](https://im.ezgif.com/tmp/ezgif-1-a5431dfad5.gif)
+![App Screenshot](https://i.imgur.com/5DqGxXQ.gif)
 
 ## Autores
 
