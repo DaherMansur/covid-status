@@ -1,5 +1,4 @@
 <?php
-    $country = 'brazil';
     require "app/config.php";
 ?>
 

@@ -15,10 +15,6 @@ class CovidStatus {
     $curl = curl_init();
     $url = 'https://api.covid19api.com/' .$endpoint. '?';
 
-    /* Query String = Data format. 
-       ?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z
-
-       from=2021-01-01&to=2021-10-21 */
     if(is_array($params)){
       foreach($params as $param => $value){
         if(empty($params)) continue;
@@ -156,7 +152,6 @@ class CovidStatus {
   
   public function newCases($status){
     $data = $this->request('total/country/'.$this->endpoint, $this->params);
-    #$status = //Deaths, Confirmed.
 
     $response = [];
     $start = 1;
@@ -176,7 +171,6 @@ class CovidStatus {
       $response[$q]['Date'] = $date;
       $start++;
     }
-
     return $response;
   }
   
@@ -202,9 +196,10 @@ class CovidStatus {
       $country = $this->getTotalCountry($slug[$random]);
       //Se acaso o valor não exisitr
       if(!$country){ 
-        $q--; //Remover -1
+        $q--;
         continue;
       }
+
       $response[] = array_merge($data[$random], $country);
     }
     return $response;

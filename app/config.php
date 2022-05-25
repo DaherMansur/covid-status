@@ -22,7 +22,6 @@
     $countrySelect = $covidStatus->getCountry(); //Lista apenas um país
     $countries = $covidStatus->getCountry('all'); //Listagem de países(nome, slug, IO)
     
-    #from=2021-01-01&to=2021-10-21
     if(!$totalCountry || !$countrySelect){
         header('location: 404.php');
     }
