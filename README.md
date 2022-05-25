@@ -13,6 +13,9 @@ Dashboard informativo desenvolvido com tecnologias como `HTML`, `CSS`, `Javascri
 - [@rodrigodalfre](https://github.com/rodrigodalfre) 👨‍💻
 - [@dahermansur](https://www.github.com/dahermansur) 👨‍💻
 
+## Referências
 
+- [Covid-19 API](https://covid19api.com/)
+- [Highcharts](https://www.highcharts.com/)
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
