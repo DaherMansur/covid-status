@@ -164,7 +164,6 @@ class CovidStatus {
       if (!isset($data[$start])) break;
 
       $value = abs($data[$start][$status]) - abs($data[$start-1][$status]);
-      
       $date = substr($data[$start]['Date'], 0, 10);
       /*
         Há correções de dados na API,
@@ -188,17 +187,25 @@ class CovidStatus {
     $slug = array_column($data, 'Slug');
     
     $response = [];
+    $randomCache = [];
     for($q = 0; $q < 4; $q++){
       $random = mt_rand(0, $total);
 
+      //Se acaso o valor for repetido
+      if(in_array($random, $randomCache)){
+        unset($randomCache[$q]);
+        $q--;
+        continue;
+      }
+      $randomCache[$q] = $random;
+      
       $country = $this->getTotalCountry($slug[$random]);
+      //Se acaso o valor não exisitr
       if(!$country){ 
         $q--; //Remover -1
         continue;
       }
-    
-      $info = array_merge($data[$random], $country);
-      $response[] = $info;
+      $response[] = array_merge($data[$random], $country);
     }
     return $response;
   }
